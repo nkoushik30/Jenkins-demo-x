@@ -5,15 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building for Windows...'
-                bat 'if not exist output mkdir output'
-                bat 'echo This is the Windows build binary > output\\app-bin.txt'
             }
         }
 
         stage('Test') {
-            steps {
-                echo 'Running Windows Tests...'
-                bat 'echo Testing logic goes here...'
+            steps { 
+                bat 'javac HelloWorld.java'
+                bat 'java HelloWorld'
             }
         }
 
